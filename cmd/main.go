@@ -4,7 +4,7 @@ import (
 	"github.com/labstack/echo-contrib/jaegertracing"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	default_handler "good-to-go/pkg/http/rest/handler"
+	"good-to-go/pkg/http/rest/handler"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.GET("/healthcheck", default_handler.Healthcheck)
+	e.GET("/healthcheck", handler.Healthcheck)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
